@@ -44,3 +44,11 @@ const addCustomer = () => {
     custs.push(cust);
     display();
 }
+const deleteCustomer = () => {
+    let id = +document.getElementById("tid").value;
+    let name = document.getElementById("tname").value;
+    let state = document.getElementById("tstate").value;
+    let cust = new Customer(id, name, state);
+    custs.pop(cust);
+    display();
+}
