@@ -22,20 +22,25 @@ let cust3 = new Customer(3, "Walmart", "AR");
 let custs = [cust1, cust2, cust3];
 
 const bodyLoaded = () => {
+    display();
+}
+const display = () => {
     let tbody = document.getElementById("tbody");
+    tbody.innerHTML = ""; // Clear old data
     for (let cust of custs) {
-        let tr = `<tr><td>${cust.id}</td>
-                      <td>${cust.name}</td>
-                      <td>${cust.state}</td>
-                  </tr>`;
-                  tbody.innerHTML += tr;
-    }    
+        let tr = `<tr>`;
+        tr += `<td>${cust.id}</td>`;
+        tr += `<td>${cust.name}</td>`;
+        tr += `<td>${cust.state}</td>`;
+        tr += `</tr>`;
+        tbody.innerHTML += tr;
+    }
 }
 const addCustomer = () => {
-    let custId = (document.getElementById("tid").value);
-    let custName = (document.getElementById("tname").value);
-    let custState = (document.getElementById("tstate"));
+    let id = +document.getElementById("tid").value;
+    let name = document.getElementById("tname").value;
+    let state = document.getElementById("tstate").value;
     let cust = new Customer(id, name, state);
-        custs.push(cust);
-        display();
+    custs.push(cust);
+    display();
 }
